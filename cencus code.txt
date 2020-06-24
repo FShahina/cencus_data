@@ -1,0 +1,79 @@
+# Importing header files
+import numpy as np
+import warnings
+
+warnings.filterwarnings('ignore')
+
+#New record
+new_record=[[50,  9,  4,  1,  0,  0, 40,  0]]
+
+#Reading file
+data = np.genfromtxt(path, delimiter=",", skip_header=1)
+print(data.shape)
+print (data)
+print('===================================')
+census = np.concatenate((new_record,data),axis=0)
+print(census.shape)
+print (census)
+#Code starts here
+age = np.array(census[:,0])
+print(age)
+max_age = np.max(age)
+min_age = np.min(age)
+age_mean = np.mean(age)
+age_std = np.std(age)
+print(age_mean)
+print(age_std)
+print('=============================')
+race = np.array(census[:,2])
+print(race)
+race_0 =[]
+race_1 = []
+race_2 = []
+race_3 = []
+race_4 = []
+race_5 = []
+for value in race:
+    if value == 0:
+        a= race_0.append(value)
+    if value == 1:
+        a= race_1.append(value)
+    if value == 2:
+        a= race_2.append(value)
+    if value == 3:
+        a= race_3.append(value)
+    if value == 4:
+        a= race_4.append(value)
+    if value == 5:
+        a= race_5.append(value)
+    
+print(race_0)
+print(race_1)
+print(race_2)
+print(race_3)
+#print(race_4)
+print(race_5)
+len_0= len(race_0)
+print(len_0)
+len_1= len(race_1)
+print(len_1)
+len_2= len(race_2)
+print(len_2)
+len_3= len(race_3)
+print(len_3)
+len_4= len(race_4)
+print(len_4)
+minority_race = 3
+print(minority_race)
+senior_citizens = print(age[age>60])
+working_hour = census[senior_citizens:,6]
+print(working_hour)
+working_hours_sum = 1917
+print(working_hours_sum)
+len_wh = len(working_hour)
+print(len_wh)
+avg_working_hours= print((working_hours_sum)/60.992)
+cen_high =print( census[:,1])
+#high = print(cen_high[cen_high>10])
+avg_pay_high = 0.43
+avg_pay_low = 0.14
